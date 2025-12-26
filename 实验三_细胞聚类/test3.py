@@ -29,6 +29,17 @@ def LabelChoose(x):
     elif x == '5':
         return 'zeisel.rds_label'
 
+def TypeChoose(x):
+     if x == '1':
+        return 4
+    elif x == '2':
+        return 16
+    elif x == '3':
+        return 7
+    elif x == '4':
+        return 8
+    elif x == '5':
+        return 9
 
 choose = '0'
 while choose != 'q':
@@ -45,7 +56,7 @@ while choose != 'q':
     X = pca.transform(data.T)
 
     #进行聚类
-    km = KMeans(n_clusters=9,random_state=1)
+    km = KMeans(n_clusters=TypeChoose(Choose),random_state=1)
     km.fit(X)
     centers = km.cluster_centers_
     # 预测
